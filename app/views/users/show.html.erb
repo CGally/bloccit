@@ -4,9 +4,9 @@
       <br />
       <% avatar_url = @user.avatar_url(128) %>
       <% if avatar_url %>
-        <div class="media-left">
-          <%= image_tag avatar_url, class: 'media-object' %>
-        </div>
+      <div class="media-left">
+        <%= image_tag avatar_url, class: 'media-object' %>
+      </div>
       <% end %>
       <div class="media-body">
         <h2 class="media-heading"><%= @user.name %></h2>
@@ -19,7 +19,10 @@
   </div>
 </div>
 <h2>Posts</h2>
-<%= render @user.posts %>
+<%= total_posts(@user) %>
 
 <h2>Comments</h2>
-<%= render @user.comments %>
+<%= total_comments(@user) %>
+
+<h2>Favorites</h2>
+ <%= render partial: 'favorites', collection: @user.favorites %>
